@@ -1,0 +1,68 @@
+<div>
+    <div id="eventHomeBody">
+        <h1>Available Conference Events</h1>
+        <hr>
+
+        <!-- Search Box -->
+        <div class="top-container">
+            <input id="searchBox" type="text" placeholder="Search by Event Name, Organizer, or Location..."
+                [(ngModel)]="searchField" (ngModelChange)="handleSearchChange($event)" />
+        </div>
+
+        <!-- Available Events Table -->
+        <table class="event-table">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Organizer</th>
+                    <th>Event Name</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Location</th>
+                    <th>Start Date & Time</th>
+                    <th>End Date & Time</th>
+                    <th>Capacity</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="filteredEvents.length; else noRecords" >
+                <tr *ngFor="let event of filteredEvents | slice:(page-1)*limit:(page*limit); let i = index">
+                    <td>{{ (page - 1) * limit + i + 1 }}</td>
+                    <td>{{ event.OrganizerName }}</td>
+                    <td>{{ event.EventName }}</td>
+                    <td>{{ event.Description }}</td>
+                    <td>{{ event.Category }}</td>
+                    <td>{{ event.Location }}</td>
+                    <td>{{ event.StartDateTime | date:'hh:mm a - d MMMM y' }}</td>
+                    <td>{{ event.EndDateTime | date:'hh:mm a - d MMMM y' }}</td>
+                    <td>{{ event.Capacity }}</td>
+                    <td>
+                        <button id="registerButton" *ngIf="!isEventRegistered(event) && !isEventExpired(event)"
+                            (click)="handleRegisterClick(event)">
+                            Register
+                        </button>
+
+                        <button id="registeredButton" *ngIf="isEventRegistered(event)">Registered</button>
+
+                        <button id="expiredButton" *ngIf="isEventExpired(event)" disabled>
+                            Expired
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+            <ng-template #noRecords>
+                <tbody>
+                    <tr>
+                        <td colSpan="9" class="no-records-cell">Oops! No events found</td>
+                    </tr>
+                </tbody>
+            </ng-template>
+        </table>
+    </div>
+
+    <div class="pagination">
+        <button (click)="page = page - 1" [disabled]="page === 1">Prev</button>
+        <span>Page {{ page }} of {{ totalPages() }}</span>
+        <button (click)="page = page + 1" [disabled]="page >= totalPages()">Next</button>
+    </div>
+</div>

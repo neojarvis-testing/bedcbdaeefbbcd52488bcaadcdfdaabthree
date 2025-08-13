@@ -1,0 +1,150 @@
+#parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 90%; */
+  /* max-width: 1200px; */
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#conferenceEventHomeBody {
+  margin-top: 20px;
+  width: 95%;
+  margin: auto;
+}
+
+#conferenceEventHomeBody.blur {
+  filter: blur(2px);
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+}
+
+hr {
+  border: 1px solid #ccc;
+}
+
+/* Search Box */
+#searchBox {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+/* Table Styling */
+.conference-event-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  color: #333;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.conference-event-table th,
+.conference-event-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 20px;
+
+}
+
+.conference-event-table th {
+  background: #4ca1af;
+  color: white;
+}
+
+.conference-event-table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.conference-event-table tr:hover {
+  background: #e3f2fd;
+  transition: 0.3s;
+}
+
+/* Buttons */
+button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+  width:100px;
+  margin: 5px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:nth-child(1) {
+  background: #3498db;
+  color: white;
+}
+
+button:nth-child(2) {
+  background: #e74c3c;
+  color: white;
+}
+
+/* No Records Message */
+.no-records-cell {
+  text-align: center;
+  font-style: italic;
+  color: #e74c3c;
+}
+
+/* Delete Confirmation Popup */
+.delete-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  color: #333;
+  border: 1px solid red;
+}
+
+.delete-popup button {
+  margin: 10px;
+}
+
+#errorMessage {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.pagination button {
+  margin: 0 5px;
+  background-color: #007bff;
+  color: #fff;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  background-color: grey;
+}

@@ -1,0 +1,174 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: #fff;
+}
+
+/* Event Home Container */
+#eventHomeBody {
+    max-width: 95%;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+/* Title */
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+    /* color: #FFD700; */
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Search Box */
+.top-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#searchBox {
+    width: 50%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 2px solid #333;
+    background: rgba(255, 255, 255, 0.2);
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#searchBox::placeholder {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+#searchBox:focus {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: #FFA500;
+}
+
+/* Table Styling */
+.event-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Table Head */
+.event-table thead {
+    /* background: #0062ff; */
+    background: #4ca1af;
+    color: #fff;
+}
+
+.event-table th {
+    padding: 12px;
+    text-align: center;
+    font-size: 16px;
+    /* text-transform: uppercase; */
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.pagination button {
+    margin: 0 5px;
+    background-color: #007bff;
+    color: #fff;
+}
+
+.pagination button:disabled {
+    cursor: not-allowed;
+    background-color: grey;
+}
+
+/* Table Rows */
+.event-table tr {
+    transition: background 0.3s ease-in-out;
+}
+
+.event-table tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.event-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Table Cells */
+.event-table td {
+    padding: 12px;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* No Records Message */
+.no-records-cell {
+    text-align: center;
+    font-size: 18px;
+    padding: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Buttons */
+button {
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+    width: 100px;
+}
+
+/* Registered Button */
+#registeredButton {
+    background: #28a745;
+    color: #fff;
+    cursor: default;
+}
+
+/* Expired Button */
+#expiredButton {
+    background: #dc3545;
+    color: #fff;
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #searchBox {
+        width: 80%;
+    }
+
+    .event-table th,
+    .event-table td {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 8px;
+    }
+}

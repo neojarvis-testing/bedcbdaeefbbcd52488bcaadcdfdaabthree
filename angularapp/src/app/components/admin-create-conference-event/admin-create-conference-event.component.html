@@ -1,0 +1,70 @@
+<div>
+  <div class="conference-form-container" [ngClass]="{ blur: successPopup }">
+    <h2>Create New Conference Event</h2>
+    <hr>
+    <form #conferenceForm="ngForm" (ngSubmit)="onSubmit(conferenceForm)">
+
+      <!-- Event Name -->
+      <label for="EventName">Event Name<span class="required">*</span></label>
+      <input type="text" name="EventName" [(ngModel)]="formData.EventName" placeholder="Event Name" required
+        #EventName="ngModel" (change)="handleChange($event, 'EventName')" />
+      <div class="error" *ngIf="EventName.invalid && EventName.touched">*Event Name is required</div>
+
+      <!-- Organizer Name -->
+      <label for="OrganizerName">Organizer Name<span class="required">*</span></label>
+      <input type="text" name="OrganizerName" [(ngModel)]="formData.OrganizerName" placeholder="Organizer Name" required
+        #OrganizerName="ngModel" (change)="handleChange($event, 'OrganizerName')" />
+      <div class="error" *ngIf="OrganizerName.invalid && OrganizerName.touched">*Organizer Name is required</div>
+
+      <!-- Category -->
+      <label for="Category">Category<span class="required">*</span></label>
+      <input type="text" name="Category" [(ngModel)]="formData.Category"
+        placeholder="Event Category (e.g., Tech, Business)" required #Category="ngModel"
+        (change)="handleChange($event, 'Category')" />
+      <div class="error" *ngIf="Category.invalid && Category.touched">*Category is required</div>
+
+      <!-- Description -->
+      <label for="Description">Description<span class="required">*</span></label>
+      <textarea name="Description" [(ngModel)]="formData.Description" placeholder="Event Description" required
+        #Description="ngModel" (change)="handleChange($event, 'Description')"></textarea>
+      <div class="error" *ngIf="Description.invalid && Description.touched">*Description is required</div>
+
+      <!-- Location -->
+      <label for="Location">Location<span class="required">*</span></label>
+      <input type="text" name="Location" [(ngModel)]="formData.Location"
+        placeholder="Location (e.g., New York, Virtual)" required #Location="ngModel"
+        (change)="handleChange($event, 'Location')" />
+      <div class="error" *ngIf="Location.invalid && Location.touched">*Location is required</div>
+
+      <!-- Start Date & Time -->
+      <label for="StartDateTime">Start Date & Time<span class="required">*</span></label>
+      <input type="datetime-local" name="StartDateTime" [(ngModel)]="formData.StartDateTime" required
+        #StartDateTime="ngModel" (change)="handleStartDateChange()" [min]="minDateTime" />
+      <div class="error" *ngIf="StartDateTime.invalid && StartDateTime.touched">*Start Date & Time is required</div>
+
+      <!-- End Date & Time -->
+      <label for="EndDateTime">End Date & Time<span class="required">*</span></label>
+      <input type="datetime-local" name="EndDateTime" [(ngModel)]="formData.EndDateTime" required #EndDateTime="ngModel"
+        (change)="handleEndDateChange()" [min]="formData.StartDateTime" />
+      <div class="error" *ngIf="EndDateTime.invalid && EndDateTime.touched">*End Date & Time is required</div>
+
+      <!-- Capacity -->
+      <label for="Capacity">Capacity<span class="required">*</span></label>
+      <input type="number" name="Capacity" [(ngModel)]="formData.Capacity" placeholder="Maximum Attendees" required
+        #Capacity="ngModel" (change)="handleChange($event, 'Capacity')" />
+      <div class="error" *ngIf="Capacity.invalid && Capacity.touched">*Capacity is required</div>
+
+      <!-- Error Message -->
+      <div *ngIf="errorMessage" class="error">*{{ errorMessage }}</div>
+
+      <!-- Submit Button -->
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- Success Popup -->
+  <div *ngIf="successPopup" class="success-popup">
+    <p>Successfully Created Conference Event!</p>
+    <button (click)="handleSuccessMessage()">Ok</button>
+  </div>
+</div>

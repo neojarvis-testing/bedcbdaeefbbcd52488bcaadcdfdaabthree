@@ -1,0 +1,30 @@
+<!-- <nav>
+  <ul class="nav-links">
+    <ng-container *ngIf="isLoggedIn">
+      <li *ngIf="isAdmin">
+        <a routerLinkActive="active">Internship</a>
+        <ul class="sub-menu">
+          <li><a routerLink="/admin/add/newinternship">Add Internship</a></li>
+          <li><a routerLink="/admin/view/viewinternship">View Internship</a></li>
+        </ul>
+      </li>
+      <li *ngIf="isAdmin"><a routerLink="admin/view/requestedinternship">Internship Requested</a></li>
+      <li *ngIf="isAdmin"><a routerLink="admin/view/feedback">Feedbacks</a></li>
+    </ng-container>
+  </ul>
+</nav> -->
+<nav>
+  <ul class="nav-links">
+    <ng-container *ngIf="isLoggedIn">
+      <li *ngIf="isAdmin">
+        <a routerLinkActive="active">Conference Events</a>
+        <ul class="sub-menu">
+          <li><a routerLink="/admin/add/conference-event">Add Conference Event</a></li>
+          <li><a routerLink="/admin/view/conference-events">View Conference Events</a></li>
+        </ul>
+      </li>
+      <li *ngIf="isAdmin"><a routerLink="/admin/view/bookings">Requested Event Bookings</a></li>
+      <li *ngIf="isAdmin"><a routerLink="/admin/view/feedback">Feedbacks</a></li>
+    </ng-container>
+  </ul>
+</nav>
